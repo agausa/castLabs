@@ -193,7 +193,7 @@ void parse_buffer(char *data, int size){
         pos += 4;
         
         // report
-        printf("Found box of type %s and size %d\n", box_type, box_size);
+        std::cout << "Found box of type " << box_type << " and size " << box_size << std::endl;
         
         if(strcmp((char*)box_type, "traf") == 0){
             parse_buffer(data + pos, box_size - 4 - 4);
@@ -255,7 +255,7 @@ int main(int argc, const char * argv[]) {
         mp4file.read((char*)&box_type, 4);
         
         // report
-        printf("Found box of type %s and size %d\n", box_type, box_size);
+        std::cout << "Found box of type " << box_type << " and size " << box_size << std::endl;
         
         if(strcmp((char*)box_type, "moof") == 0){
             // allocate and read the chunk
@@ -303,4 +303,3 @@ int main(int argc, const char * argv[]) {
     std::cout << std::endl << "We done!" << std::endl;
     return 0;
 }
-
